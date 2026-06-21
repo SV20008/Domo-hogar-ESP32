@@ -1,4 +1,4 @@
-# 🏠 Sistema de Domótica Residencial (DomoHogar ESP32)
+# Sistema de Domótica Residencial (DomoHogar ESP32)
 ### Universidad de El Salvador - Facultad de Ingeniería y Arquitectura
 [cite_start]**Materia:** EBB115 - Avance de Proyecto No. 2 [cite: 10, 14]
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🗺️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 [cite_start]El flujo de comunicación opera bajo el modelo Publicador/Suscriptor a través de Wi-Fi usando el IoT Gateway de Wokwi[cite: 22, 24, 65]:
 1. [cite_start]**Sensores (ESP32 $\rightarrow$ MQTT):** El hardware lee las variables del entorno y las publica en tópicos específicos[cite: 24, 36].
@@ -15,7 +15,7 @@
 
 ---
 
-## 🔌 Recursos del Circuito (Hardware en Wokwi)
+##  Recursos del Circuito (Hardware en Wokwi)
 [cite_start]De acuerdo con los requerimientos técnicos fijados, el sistema integra la siguiente distribución de pines[cite: 39, 61]:
 
 ### [cite_start]Sensores (Entradas) [cite: 39, 61]
@@ -34,7 +34,7 @@
 
 ---
 
-## 💻 Requisitos previos e Instalación Local
+## Requisitos previos e Instalación Local
 
 Para ejecutar el Dashboard y almacenar las lecturas, necesitas tener **Python 3.12** instalado en tu computadora.
 
