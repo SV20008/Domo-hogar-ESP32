@@ -1,4 +1,4 @@
-# Sistema de Domótica Residencial (DomoHogar ESP32)
+#  Sistema de Domótica Residencial (DomoHogar ESP32)
 ### Universidad de El Salvador - Facultad de Ingeniería y Arquitectura
 [cite_start]**Materia:** EBB115 - Avance de Proyecto No. 2 [cite: 10, 14]
 
@@ -34,7 +34,7 @@
 
 ---
 
-## Requisitos previos e Instalación Local
+##  Requisitos previos e Instalación Local
 
 Para ejecutar el Dashboard y almacenar las lecturas, necesitas tener **Python 3.12** instalado en tu computadora.
 
@@ -42,3 +42,62 @@ Para ejecutar el Dashboard y almacenar las lecturas, necesitas tener **Python 3.
 2. Instala las librerías necesarias ejecutando el siguiente comando:
    ```bash
    pip install paho-mqtt matplotlib
+   ```
+
+3. El dashboard Python se conecta al broker HiveMQ usando WebSockets seguros. En HiveMQ Websocket Demo usa:
+   * Anfitrión: `broker.hivemq.com`
+   * Puerto: `8884`
+   * Ruta WebSocket: `/mqtt`
+   * Conexión segura/TLS: activada
+   * Client ID: `dashboard-domotica-py`
+   * Suscribirse a: `casa/#`
+
+4. El ESP32 virtualizado se conecta al mismo broker con MQTT normal sobre TCP:
+   * Broker: `broker.hivemq.com`
+   * Puerto: `1883`
+   * Usa el mismo conjunto de tópicos `casa/...` definidos en el sketch y en el dashboard.
+
+5. Para depurar, el dashboard también suscribe `#` y muestra todos los mensajes MQTT recibidos.
+
+##  Comandos para ejecutar el servidor / dashboard
+
+1. Abre tu terminal en la carpeta del proyecto:
+   ```bash
+   cd C:/Users/Josue/Desktop/ProyectoDomotica
+   ```
+
+2. Activa el entorno virtual si lo tienes:
+   ```powershell
+   .\.venv\Scripts\Activate.ps1
+   ```
+   O en CMD:
+   ```cmd
+   .\.venv\Scripts\activate.bat
+   ```
+
+3. Si no tienes el entorno virtual, crea uno:
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
+
+4. Instala las dependencias:
+   ```bash
+   pip install paho-mqtt matplotlib
+   ```
+
+5. Ejecuta el dashboard Python:
+   ```bash
+   python dashboard.py
+   ```
+
+6. Para detenerlo, cierra la ventana del dashboard o presiona `Ctrl+C` en la terminal.
+
+##  Comandos para el broker HiveMQ WebSocket Demo
+
+En la demo de HiveMQ usa los siguientes valores:
+* Anfitrión: `broker.hivemq.com`
+* Puerto: `8884`
+* TLS/SSL: activado
+* Client ID: `dashboard-domotica-py`
+* Topic subscribe: `casa/#`
